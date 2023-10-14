@@ -15,4 +15,11 @@
     <string name="enter_email">Enter Email</string>
     <string name="enter_password">Enter Password</string>
     <string name="login">Login</string>
+    <string name="try_gain">Try Again</string>
+    <string name="name">Name</string>
+    <string name="dos">Dos</string>
+    <string name="strength">Strength</string>
+    <string name="welcome">"Welcome, "</string>
+    <string name="login_at">"Logged in at: "</string>
+    <string name="drugs">Drugs</string>
 </resources>
