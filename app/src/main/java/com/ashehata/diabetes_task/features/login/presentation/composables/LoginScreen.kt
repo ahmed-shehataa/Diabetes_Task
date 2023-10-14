@@ -17,7 +17,7 @@ import com.ashehata.diabetes_task.features.login.presentation.viewModel.LoginVie
 @Composable
 fun LoginScreen(
     viewModel: LoginViewModel,
-    onOpenDiabetesScreen: () -> Unit,
+    onOpenDiabetesScreen: (String) -> Unit,
 ) {
 
     val keyboardController = LocalSoftwareKeyboardController.current
@@ -65,8 +65,8 @@ fun LoginScreen(
 
     GeneralObservers<LoginAction, LoginViewModel>(viewModel = viewModel) {
         when (it) {
-            LoginAction.OpenDiabetesScreen -> {
-                onOpenDiabetesScreen()
+            is LoginAction.OpenDiabetesScreen -> {
+                onOpenDiabetesScreen(it.userEmail)
             }
         }
 

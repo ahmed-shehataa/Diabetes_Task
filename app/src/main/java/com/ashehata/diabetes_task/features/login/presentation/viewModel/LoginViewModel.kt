@@ -34,7 +34,7 @@ class LoginViewModel @Inject constructor(
             )
             setUserUseCase.execute(user)
             setDoneLoading()
-            setState { LoginAction.OpenDiabetesScreen }
+            setState { LoginAction.OpenDiabetesScreen(user.email) }
         }
     }
 

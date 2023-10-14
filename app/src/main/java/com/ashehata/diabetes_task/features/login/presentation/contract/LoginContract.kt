@@ -11,7 +11,7 @@ sealed class LoginIntent : BaseIntent {
 }
 
 sealed class LoginAction : BaseAction {
-    object OpenDiabetesScreen : LoginAction()
+    data class OpenDiabetesScreen(val userEmail: String) : LoginAction()
 }
 
 data class LoginViewState(
