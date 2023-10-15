@@ -8,11 +8,13 @@ import com.squareup.moshi.Json
 @Keep
 @Entity(tableName = "drugs")
 data class DrugDataModel(
+    @Json(ignore = true)
+    @PrimaryKey(autoGenerate = true)
+    val id: Int? = null,
     @Json(name = "name")
-    @PrimaryKey
     val name: String,
     @Json(name = "dose")
     val dose: String?,
     @Json(name = "strength")
-    val strength: String?
+    val strength: String?,
 )

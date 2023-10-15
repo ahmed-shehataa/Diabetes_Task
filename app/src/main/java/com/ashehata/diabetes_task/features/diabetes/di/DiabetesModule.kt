@@ -8,7 +8,7 @@ import com.ashehata.diabetes_task.features.diabetes.data.remote.DiabetesRemoteDa
 import com.ashehata.diabetes_task.features.diabetes.data.repository.DiabetesRepositoryImpl
 import com.ashehata.diabetes_task.features.diabetes.data.retrofit.service.DiabetesService
 import com.ashehata.diabetes_task.features.diabetes.domain.repository.DiabetesRepository
-import com.ashehata.orange_task.modules.news.data.local.dao.DiabetesDao
+import com.ashehata.diabetes_task.features.diabetes.data.local.dao.DiabetesDao
 import dagger.Binds
 import dagger.Module
 import dagger.Provides

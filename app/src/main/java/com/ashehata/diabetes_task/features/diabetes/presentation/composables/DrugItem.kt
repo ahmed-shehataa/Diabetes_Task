@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -17,6 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.ashehata.diabetes_task.R
 import com.ashehata.diabetes_task.features.diabetes.presentation.model.DrugUIModel
+import com.ashehata.diabetes_task.util.CallIfValid
 
 @Composable
 fun DrugItem(
@@ -39,21 +39,21 @@ fun DrugItem(
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
 
-        drug.name?.let {
+        drug.name?.CallIfValid {
             ItemTitled(
                 title = R.string.name,
                 description = it
             )
         }
 
-        drug.dose?.let {
+        drug.dose?.CallIfValid {
             ItemTitled(
                 title = R.string.dos,
                 description = it
             )
         }
 
-        drug.strength?.let {
+        drug.strength?.CallIfValid {
             ItemTitled(
                 title = R.string.strength,
                 description = it

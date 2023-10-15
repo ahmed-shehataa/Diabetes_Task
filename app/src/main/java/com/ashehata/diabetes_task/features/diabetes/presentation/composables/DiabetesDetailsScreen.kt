@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.ashehata.diabetes_task.R
 import com.ashehata.diabetes_task.features.diabetes.presentation.model.DrugUIModel
+import com.ashehata.diabetes_task.util.CallIfValid
 
 @Composable
 fun DiabetesDetailsScreen(drug: DrugUIModel) {
@@ -24,21 +25,21 @@ fun DiabetesDetailsScreen(drug: DrugUIModel) {
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
 
-        drug.name?.let {
+        drug.name?.CallIfValid {
             ItemTitled(
                 title = R.string.name,
                 description = it
             )
         }
 
-        drug.dose?.let {
+        drug.dose?.CallIfValid {
             ItemTitled(
                 title = R.string.dos,
                 description = it
             )
         }
 
-        drug.strength?.let {
+        drug.strength?.CallIfValid {
             ItemTitled(
                 title = R.string.strength,
                 description = it

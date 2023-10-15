@@ -1,5 +1,6 @@
 package com.ashehata.diabetes_task.base
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -33,6 +34,7 @@ abstract class BaseViewModel<Intent : BaseIntent, ViewState : BaseViewState, Act
 
     private val defaultExceptionHandler = exceptionHandler {
         handleCustomNetworkError()
+        Log.i("defaultExceptionHandler", it.localizedMessage)
     }
 
     init {

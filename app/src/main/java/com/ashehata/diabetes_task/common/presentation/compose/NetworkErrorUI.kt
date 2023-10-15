@@ -21,7 +21,7 @@ fun NetworkErrorUI(onTryClicked: () -> Unit) {
             modifier = Modifier.align(Alignment.Center),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text("stringResource(id = networkError.messageRes)")
+            Text("Network Error")
 
             Button(onClick = { onTryClicked() }) {
                 Text(stringResource(R.string.try_gain))
