@@ -1,7 +1,7 @@
 package com.ashehata.diabetes_task.features.diabetes.data.local.source
 
 import com.ashehata.diabetes_task.features.diabetes.data.model.DrugDataModel
-import com.ashehata.orange_task.modules.news.data.local.dao.DiabetesDao
+import com.ashehata.diabetes_task.features.diabetes.data.local.dao.DiabetesDao
 import javax.inject.Inject
 
 class DiabetesLocalDataSourceImpl @Inject constructor(

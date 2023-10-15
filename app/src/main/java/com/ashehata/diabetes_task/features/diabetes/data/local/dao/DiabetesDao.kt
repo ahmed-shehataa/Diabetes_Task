@@ -1,4 +1,4 @@
-package com.ashehata.orange_task.modules.news.data.local.dao
+package com.ashehata.diabetes_task.features.diabetes.data.local.dao
 
 import androidx.room.*
 import com.ashehata.diabetes_task.features.diabetes.data.model.DrugDataModel

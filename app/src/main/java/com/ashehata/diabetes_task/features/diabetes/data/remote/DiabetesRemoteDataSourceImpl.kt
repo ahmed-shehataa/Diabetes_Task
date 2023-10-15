@@ -9,6 +9,20 @@ class DiabetesRemoteDataSourceImpl @Inject constructor(
 ) : DiabetesRemoteDataSource {
 
     override suspend fun getDrugs(): List<DrugDataModel> {
-        return emptyList()
+        return service.getDiabetes().problems?.firstOrNull()
+            ?.diabetes?.firstOrNull()
+            ?.medications?.firstOrNull()
+            ?.medicationsClasses?.firstOrNull()
+            ?.let {
+                val firstList: List<DrugDataModel>? =
+                    it.className?.firstOrNull()?.drugDataModel
+                        ?.plus(it.className.firstOrNull()?.drugDataModel2 ?: emptyList())
+
+                val secondList: List<DrugDataModel>? =
+                    it.className2?.firstOrNull()?.drugDataModel
+                        ?.plus(it.className2.firstOrNull()?.drugDataModel2 ?: emptyList())
+
+                return@let firstList?.plus(secondList ?: emptyList()) ?: emptyList()
+            } ?: emptyList()
     }
 }
