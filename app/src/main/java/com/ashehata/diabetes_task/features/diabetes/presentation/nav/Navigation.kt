@@ -11,6 +11,10 @@ fun NavController.openDiabetes() {
             popUpTo("login") {
                 inclusive = true
             }
+
+            popUpTo("splash") {
+                inclusive = true
+            }
         }
     )
 }

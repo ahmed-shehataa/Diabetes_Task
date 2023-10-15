@@ -51,7 +51,7 @@ class HomeActivity : ComponentActivity() {
 
                     composable("diabetes") {
                         val viewModel: DiabetesViewModel by viewModels()
-                        DiabetesScreen(viewModel, navController)
+                        DiabetesScreen(viewModel)
                     }
                 }
             }

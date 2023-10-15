@@ -20,5 +20,6 @@ sealed class DiabetesAction : BaseAction {
 
 data class DiabetesViewState(
     val userEmail: MutableState<String> = mutableStateOf(""),
+    val clickedDrug: MutableState<DrugUIModel?> = mutableStateOf(null),
     val drugs: SnapshotStateList<DrugUIModel> = mutableStateListOf(),
 ) : BaseViewState()

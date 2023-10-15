@@ -42,6 +42,7 @@ class DiabetesViewModel @Inject constructor(
         when (event) {
             is DiabetesIntent.OnDrugClicked -> {
                 setState {
+                    viewStates?.clickedDrug?.value = event.drugUIModel
                     DiabetesAction.OpenDrugDetailsScreen(event.drugUIModel)
                 }
             }
