@@ -4,13 +4,18 @@ import androidx.navigation.NavController
 import androidx.navigation.navOptions
 
 
-fun NavController.openLogin() {
+fun NavController.openLogin(isFromDiabetes: Boolean) {
     navigate(
         "login",
         navOptions = navOptions {
-            popUpTo("splash") {
-                inclusive = true
-            }
+            if (isFromDiabetes)
+                popUpTo("diabetes") {
+                    inclusive = true
+                }
+            else
+                popUpTo("splash") {
+                    inclusive = true
+                }
         }
     )
 }

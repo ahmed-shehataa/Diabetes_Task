@@ -7,13 +7,15 @@ import com.ashehata.diabetes_task.features.diabetes.presentation.contract.Diabet
 import com.ashehata.diabetes_task.features.diabetes.presentation.contract.DiabetesViewState
 import com.ashehata.diabetes_task.features.diabetes.presentation.mapper.toUIModel
 import com.ashehata.diabetes_task.features.user.domain.usecase.GetUserUseCase
+import com.ashehata.diabetes_task.features.user.domain.usecase.LogOutUserUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class DiabetesViewModel @Inject constructor(
     private val getUserUseCase: GetUserUseCase,
-    private val getDrugsListUseCase: GetDrugsListUseCase
+    private val getDrugsListUseCase: GetDrugsListUseCase,
+    private val logOutUserUseCase: LogOutUserUseCase
 ) : BaseViewModel<DiabetesIntent, DiabetesViewState, DiabetesAction>() {
 
     init {
@@ -49,6 +51,13 @@ class DiabetesViewModel @Inject constructor(
 
             DiabetesIntent.RefreshScreen -> {
                 getDrugs()
+            }
+
+            DiabetesIntent.OnLogoutClicked -> {
+                launchCoroutine {
+                    logOutUserUseCase.execute()
+                    setState { DiabetesAction.OpenLoginScreen }
+                }
             }
         }
     }

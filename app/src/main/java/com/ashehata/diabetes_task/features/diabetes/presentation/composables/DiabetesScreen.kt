@@ -9,18 +9,21 @@ import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.navigation.NavController
 import com.ashehata.diabetes_task.common.presentation.util.GeneralObservers
 import com.ashehata.diabetes_task.features.diabetes.presentation.contract.DiabetesAction
 import com.ashehata.diabetes_task.features.diabetes.presentation.contract.DiabetesIntent
 import com.ashehata.diabetes_task.features.diabetes.presentation.contract.DiabetesViewState
 import com.ashehata.diabetes_task.features.diabetes.presentation.model.DrugUIModel
 import com.ashehata.diabetes_task.features.diabetes.presentation.viewmodel.DiabetesViewModel
+import com.ashehata.diabetes_task.features.login.presentation.nav.openLogin
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun DiabetesScreen(
     viewModel: DiabetesViewModel,
+    navController: NavController
 ) {
 
     /**
@@ -56,6 +59,10 @@ fun DiabetesScreen(
         viewStates.isNetworkError
     }
 
+    val logoutDialogState = remember {
+        viewStates.logoutDialogState
+    }
+
     val bottomSheetState =
         rememberModalBottomSheetState(initialValue = ModalBottomSheetValue.Hidden)
 
@@ -68,6 +75,12 @@ fun DiabetesScreen(
     val onRefresh = remember {
         {
             viewModel.setEvent(DiabetesIntent.RefreshScreen)
+        }
+    }
+
+    val onLogout = remember {
+        {
+            viewModel.setEvent(DiabetesIntent.OnLogoutClicked)
         }
     }
 
@@ -96,10 +109,12 @@ fun DiabetesScreen(
             isRefreshing = isRefreshing.value,
             userEmail = userEmail.value,
             drugs = drugs,
+            logoutDialogState = logoutDialogState,
             onDrugClicked = onDrugClicked,
             onRefresh = onRefresh,
             isLoading = isLoading.value,
-            isNetworkError = isNetworkError.value
+            isNetworkError = isNetworkError.value,
+            onLogout = onLogout,
         )
     }
 
@@ -113,6 +128,10 @@ fun DiabetesScreen(
                 scope.launch {
                     bottomSheetState.show()
                 }
+            }
+
+            DiabetesAction.OpenLoginScreen -> {
+                navController.openLogin(isFromDiabetes = true)
             }
         }
     }
