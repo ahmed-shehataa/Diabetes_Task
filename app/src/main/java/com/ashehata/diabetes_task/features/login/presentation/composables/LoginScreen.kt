@@ -13,6 +13,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.navOptions
 import com.ashehata.diabetes_task.R
 import com.ashehata.diabetes_task.common.presentation.util.GeneralObservers
+import com.ashehata.diabetes_task.features.diabetes.presentation.nav.openDiabetes
 import com.ashehata.diabetes_task.features.login.presentation.contract.LoginAction
 import com.ashehata.diabetes_task.features.login.presentation.contract.LoginIntent
 import com.ashehata.diabetes_task.features.login.presentation.contract.LoginViewState
@@ -79,14 +80,7 @@ fun LoginScreen(
                     Toast.LENGTH_SHORT
                 ).show()
 
-                navController.navigate(
-                    "diabetes",
-                    navOptions = navOptions {
-                        popUpTo("login") {
-                            inclusive = true
-                        }
-                    }
-                )
+                navController.openDiabetes(isFromLogin = true)
             }
         }
 

@@ -12,13 +12,18 @@ import com.ashehata.diabetes_task.features.diabetes.presentation.model.DrugUIMod
 sealed class DiabetesIntent : BaseIntent {
     data class OnDrugClicked(val drugUIModel: DrugUIModel) : DiabetesIntent()
     object RefreshScreen : DiabetesIntent()
+    object OnLogoutClicked : DiabetesIntent()
 }
 
 sealed class DiabetesAction : BaseAction {
     data class OpenDrugDetailsScreen(val drugUIModel: DrugUIModel) : DiabetesAction()
+    object OpenLoginScreen : DiabetesAction()
+
 }
 
 data class DiabetesViewState(
     val userEmail: MutableState<String> = mutableStateOf(""),
+    val logoutDialogState: MutableState<Boolean> = mutableStateOf(false),
+    val clickedDrug: MutableState<DrugUIModel?> = mutableStateOf(null),
     val drugs: SnapshotStateList<DrugUIModel> = mutableStateListOf(),
 ) : BaseViewState()

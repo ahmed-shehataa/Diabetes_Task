@@ -58,8 +58,13 @@ class HomeActivity : ComponentActivity() {
 
             GeneralObservers<HomeState, HomeViewModel>(viewModel = viewModel) {
                 when (it) {
-                    HomeState.OpenDiabetesScreen -> { navController.openDiabetes() }
-                    HomeState.OpenLoginScreen -> { navController.openLogin() }
+                    HomeState.OpenDiabetesScreen -> {
+                        navController.openDiabetes(isFromLogin = false)
+                    }
+
+                    HomeState.OpenLoginScreen -> {
+                        navController.openLogin(isFromDiabetes = false)
+                    }
                 }
             }
         }
