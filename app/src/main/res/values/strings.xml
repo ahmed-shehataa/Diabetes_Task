@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">Diabetes_Task</string>
+    <string name="empty_lbl" />
+    <string name="empty_field">"Empty field "</string>
+    <string name="invalid_email">"Invalid Email "</string>
+    <string name="user_name">Name</string>
+    <string name="job_title">Job Title</string>
+    <string name="age">Age</string>
+    <string name="invalid_age">Invalid age</string>
+    <string name="gender">Gender</string>
+    <string name="sign_up">Sign up</string>
+    <string name="logout">Logout</string>
+    <string name="cancel">Cancel</string>
+    <string name="are_you_sure_to_logout">Are you sure to logout?</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="login">Login</string>
+    <string name="try_gain">Try Again</string>
+    <string name="name">Name</string>
+    <string name="dos">Dos</string>
+    <string name="strength">Strength</string>
+    <string name="welcome">Welcome, %s</string>
+    <string name="login_at">Logged in at: %s</string>
+    <string name="drugs">Drugs</string>
 </resources>
