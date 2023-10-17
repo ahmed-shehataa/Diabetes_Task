@@ -80,7 +80,7 @@ fun LoginScreen(
                         context.getString(R.string.welcome),
                         it.userEmail
                     ) + "\n" + getCurrentTime(),
-                    Toast.LENGTH_SHORT
+                    Toast.LENGTH_LONG
                 ).show()
 
                 navController.openDiabetes(isFromLogin = true)

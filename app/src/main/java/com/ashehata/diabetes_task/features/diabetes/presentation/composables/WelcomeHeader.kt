@@ -23,10 +23,8 @@ fun WelcomeHeader(userEmail: String) {
 
         Row(verticalAlignment = Alignment.CenterVertically) {
             Text(
-                text = stringResource(id = R.string.welcome),
-                style = MaterialTheme.typography.subtitle2.copy(
-                    fontSize = 20.sp
-                )
+                text = String.format(stringResource(id = R.string.welcome), userEmail),
+                style = MaterialTheme.typography.subtitle2.copy(fontSize = 20.sp)
             )
             Text(text = userEmail, modifier = Modifier.weight(1f))
         }
