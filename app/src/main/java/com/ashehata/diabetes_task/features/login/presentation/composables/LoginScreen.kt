@@ -11,7 +11,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import androidx.navigation.navOptions
 import com.ashehata.diabetes_task.R
 import com.ashehata.diabetes_task.common.presentation.util.GeneralObservers
 import com.ashehata.diabetes_task.features.diabetes.presentation.nav.openDiabetes
@@ -77,7 +76,10 @@ fun LoginScreen(
             is LoginAction.OpenDiabetesScreen -> {
                 Toast.makeText(
                     context,
-                    context.getString(R.string.welcome) + it + "\n" + getCurrentTime(),
+                    String.format(
+                        context.getString(R.string.welcome),
+                        it.userEmail
+                    ) + "\n" + getCurrentTime(),
                     Toast.LENGTH_SHORT
                 ).show()
 
