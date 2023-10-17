@@ -16,7 +16,7 @@ enum class ValidationType {
 data class InputWrapper(
     var text: MutableState<String> = mutableStateOf(""),
     var isValid: MutableState<Boolean> = mutableStateOf(false),
-    var borderColor: Color = Color.Gray,
+    var borderColor: MutableState<Color> = mutableStateOf(Color.Gray),
     val validationType: ValidationType? = ValidationType.Text
 ) {
 
@@ -29,12 +29,14 @@ data class InputWrapper(
             ValidationType.Age -> input.validateAge().toMessageRes()
             else -> input.validateText().toMessageRes()
         }
-        borderColor = if (isValid.value) {
-            Color.Gray
-        } else {
-            Color.Red
-        }
         isValid.value = validationMessageResId == R.string.empty_lbl && text.value.isNotEmpty()
+        borderColor.value = if (isValid.value) Color.Gray else Color.Red
+    }
+
+    fun invalidate() {
+        text.value = ""
+        isValid.value = false
+        borderColor.value = Color.Gray
     }
 }
 

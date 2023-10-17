@@ -9,6 +9,7 @@ import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.ashehata.diabetes_task.common.presentation.util.GeneralObservers
 import com.ashehata.diabetes_task.features.diabetes.presentation.contract.DiabetesAction
@@ -22,7 +23,7 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun DiabetesScreen(
-    viewModel: DiabetesViewModel,
+    viewModel: DiabetesViewModel = hiltViewModel(),
     navController: NavController
 ) {
 

@@ -40,26 +40,12 @@ fun InputText(
         inputWrapper.text
     }
 
-    var isPasswordVisible by remember {
-        mutableStateOf(false)
+    val borderColor by remember {
+        inputWrapper.borderColor
     }
 
-    val trailingIcon: @Composable (() -> Unit)? = remember(inputWrapper.validationType) {
-        {
-            /*if (inputWrapper.validationType == ValidationType.Password) {
-                val iconRes = if (isPasswordVisible)
-                    R.drawable.ic_eye_opened
-                else R.drawable.ic_eye_closed
-
-                IconButton(onClick = { isPasswordVisible = !isPasswordVisible }) {
-                    Icon(
-                        modifier = Modifier.size(24.dp),
-                        imageVector = ImageVector.vectorResource(id = iconRes),
-                        contentDescription = null,
-                    )
-                }
-            } else*/ null
-        }
+    var isPasswordVisible by remember {
+        mutableStateOf(false)
     }
 
 
@@ -78,9 +64,7 @@ fun InputText(
                 .fillMaxWidth()
                 .requiredHeight(50.dp)
                 .clip(MaterialTheme.shapes.medium)
-                .border(
-                    1.dp, Color.Gray, MaterialTheme.shapes.medium
-                ),
+                .border(1.dp, borderColor, MaterialTheme.shapes.medium),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center,
         ) {
@@ -93,6 +77,9 @@ fun InputText(
                 },
                 textStyle = MaterialTheme.typography.body2,
                 modifier = Modifier.weight(1F),
+                colors = TextFieldDefaults.textFieldColors(
+                    focusedIndicatorColor = Color.Transparent
+                ),
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(
                     keyboardType = keyboardType,
@@ -109,7 +96,6 @@ fun InputText(
 
                 ),
                 visualTransformation = visualTransformation,
-                trailingIcon = trailingIcon
             )
         }
 
