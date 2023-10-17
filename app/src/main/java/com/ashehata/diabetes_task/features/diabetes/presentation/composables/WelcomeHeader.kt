@@ -27,7 +27,7 @@ fun WelcomeHeader(userEmail: String) {
             maxLines = 1,
             overflow = TextOverflow.Ellipsis
         )
-
+        
         Text(
             text = String.format(stringResource(id = R.string.login_at), currentDate),
             style = MaterialTheme.typography.subtitle2.copy(fontSize = 20.sp),
