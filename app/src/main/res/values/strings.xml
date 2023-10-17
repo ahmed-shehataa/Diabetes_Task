@@ -20,6 +20,6 @@
     <string name="dos">Dos</string>
     <string name="strength">Strength</string>
     <string name="welcome">Welcome, %s</string>
-    <string name="login_at">"Logged in at: "</string>
+    <string name="login_at">Logged in at: %s</string>
     <string name="drugs">Drugs</string>
 </resources>
