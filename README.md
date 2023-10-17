@@ -16,7 +16,7 @@ The Diabetes is to create a simple MVVM project in kotlin and compose
 
 
 ## APK Download
-[Click here](https://drive.google.com/file/d/1zz20HCOX_UYV6tDOUNBQer_YyxUQtQ4P/view?usp=sharing)
+[Click here]([https://drive.google.com/file/d/1zz20HCOX_UYV6tDOUNBQer_YyxUQtQ4P/view?usp=sharing](https://drive.google.com/file/d/1pu_N6HUWsnzQggO400R-Hc_i-uAa60o5/view?usp=sharing))
 
 
 ## In-App architecture
