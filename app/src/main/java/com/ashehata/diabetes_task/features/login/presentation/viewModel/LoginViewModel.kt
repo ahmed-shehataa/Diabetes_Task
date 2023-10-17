@@ -35,18 +35,11 @@ class LoginViewModel @Inject constructor(
             setUserUseCase.execute(user)
             setDoneLoading()
             setState { LoginAction.OpenDiabetesScreen(user.email) }
-            resetViewStates()
         }
     }
 
     override fun createInitialViewState(): LoginViewState {
         return LoginViewState()
-    }
-
-    override fun resetViewStates() {
-        listOf(viewStates?.email, viewStates?.password).forEach {
-            it?.invalidate()
-        }
     }
 
 }

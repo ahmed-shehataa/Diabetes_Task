@@ -29,12 +29,8 @@ data class InputWrapper(
             ValidationType.Age -> input.validateAge().toMessageRes()
             else -> input.validateText().toMessageRes()
         }
-        borderColor.value = if (isValid.value) {
-            Color.Gray
-        } else {
-            Color.Red
-        }
         isValid.value = validationMessageResId == R.string.empty_lbl && text.value.isNotEmpty()
+        borderColor.value = if (isValid.value) Color.Gray else Color.Red
     }
 
     fun invalidate() {

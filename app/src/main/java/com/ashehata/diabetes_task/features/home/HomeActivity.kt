@@ -16,10 +16,8 @@ import androidx.navigation.compose.rememberNavController
 import com.ashehata.diabetes_task.common.presentation.util.GeneralObservers
 import com.ashehata.diabetes_task.features.diabetes.presentation.composables.DiabetesScreen
 import com.ashehata.diabetes_task.features.diabetes.presentation.nav.openDiabetes
-import com.ashehata.diabetes_task.features.diabetes.presentation.viewmodel.DiabetesViewModel
 import com.ashehata.diabetes_task.features.login.presentation.composables.LoginScreen
 import com.ashehata.diabetes_task.features.login.presentation.nav.openLogin
-import com.ashehata.diabetes_task.features.login.presentation.viewModel.LoginViewModel
 import com.ashehata.diabetes_task.theme.AppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -45,13 +43,11 @@ class HomeActivity : ComponentActivity() {
                     }
 
                     composable("login") {
-                        val viewModel: LoginViewModel by viewModels()
-                        LoginScreen(viewModel, navController)
+                        LoginScreen(navController = navController)
                     }
 
                     composable("diabetes") {
-                        val viewModel: DiabetesViewModel by viewModels()
-                        DiabetesScreen(viewModel, navController)
+                        DiabetesScreen(navController = navController)
                     }
                 }
             }

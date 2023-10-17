@@ -9,6 +9,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.navOptions
 import com.ashehata.diabetes_task.R
@@ -23,7 +24,7 @@ import com.ashehata.diabetes_task.util.getCurrentTime
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun LoginScreen(
-    viewModel: LoginViewModel,
+    viewModel: LoginViewModel = hiltViewModel(),
     navController: NavHostController,
 ) {
     val context = LocalContext.current
