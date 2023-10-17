@@ -1,5 +1,5 @@
-# Simple-Task
-The task is to create a simple MVVM project in kotlin and compose
+# Diabetes-Task
+The Diabetes is to create a simple MVVM project in kotlin and compose
 
 ## ScreenShots:
 <p align="center">
